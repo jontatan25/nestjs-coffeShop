@@ -1,10 +1,14 @@
 import { Controller } from '@nestjs/common';
-import { Get } from '@nestjs/common/decorators';
+import { Get, Param } from '@nestjs/common/decorators';
 
 @Controller('coffees')
 export class CoffeesController {
     @Get()
     findAll() {
-        return 'This action return all Coffees'
+        return 'This action returns all Coffees'
+    }
+    @Get(':id')
+    findOne(@Param('id') id:string) {
+        return `This action returns #${id} Coffee`
     }
 }
