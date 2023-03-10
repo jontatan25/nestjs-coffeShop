@@ -2,7 +2,7 @@ import { Controller, HttpException, HttpStatus, NotFoundException } from '@nestj
 import { Body, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common/decorators';
 
 import { CoffeesService } from './coffees.service';
-import { CreateCoffeeDTO } from './dto/create-coffee.dto/create-coffee.dto';
+import { CreateCoffeeDto } from './dto/create-coffee.dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto/update-coffee.dto';
 
 @Controller('coffees')
@@ -24,8 +24,8 @@ export class CoffeesController {
         return coffee;
     }
     @Post()
-    create(@Body() createCoffeeDTO: CreateCoffeeDTO) {
-        return this.coffeesService.create(createCoffeeDTO)
+    create(@Body() createCoffeeDto: CreateCoffeeDto) {
+        return this.coffeesService.create(createCoffeeDto)
     }
     @Patch(':id')
     update(@Param('id') id: string, @Body() updateCoffeeDto: UpdateCoffeeDto){
